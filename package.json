@@ -1,0 +1,25 @@
+{
+  "name": "user-authentication",
+  "version": "1.0.0",
+  "description": "API de usuários",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmarquescoder/user-authentication.git"
+  },
+  "keywords": [
+    "user",
+    "jwt",
+    "bcrypt",
+    "mongodb"
+  ],
+  "author": "David Marques",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidmarquescoder/user-authentication/issues"
+  },
+  "homepage": "https://github.com/davidmarquescoder/user-authentication#readme"
+}
