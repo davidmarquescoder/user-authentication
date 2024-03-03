@@ -4,7 +4,8 @@
   "description": "API de usuários",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-dev --inspect --ignore-watch node_modules ./src/shared/core/server.ts"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,25 @@
   "bugs": {
     "url": "https://github.com/davidmarquescoder/user-authentication/issues"
   },
-  "homepage": "https://github.com/davidmarquescoder/user-authentication#readme"
+  "homepage": "https://github.com/davidmarquescoder/user-authentication#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.0",
+    "nodemailer": "^6.9.11"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
 }
