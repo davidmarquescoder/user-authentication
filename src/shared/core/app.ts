@@ -1,12 +1,14 @@
 // Imports Modules
 import express from 'express';
-import cors from 'cors';
-
-// Dotenv Config
 import dontenv from 'dotenv';
-dontenv.config();
+import cors from 'cors';
+import mongoose from 'mongoose';
 
 // Imports Routes
+import routes from '../../modules/user/routes/user.routes';
+
+// Dotenv Config
+dontenv.config();
 
 
 class App{
@@ -15,8 +17,20 @@ class App{
 
 	constructor(){
 		this.server = express();
+		this.connection();
 		this.middlewares();
 		this.routes();
+	}
+
+	async connection(){
+		await mongoose.connect(`${process.env.URI_CONNECTION}`)
+			.then(() => {
+				console.log('📌 Successfully connect to MongoDB.');
+			})
+			.catch(err => {
+				console.error('Connection error: ', err);
+				process.exit();
+			});
 	}
 
 	middlewares(){
@@ -27,7 +41,7 @@ class App{
 	}
 
 	routes(){
-        
+		this.server.use(routes);
 	}
 }
 
