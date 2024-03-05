@@ -6,7 +6,7 @@ import NewUser from '../controllers/create_user';
 
 // Validations
 import validate from '../../../shared/middlewares/validator';
-import { InsertUserSchema } from '../entities/user_validation_schema';
+import { InsertUserSchema } from '../entities/validation_schema';
 
 
 const routes = Router();

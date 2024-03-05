@@ -4,6 +4,7 @@ const msg_required_login = 'Preencha os campos para fazer login!';
 const InsertUserSchema = {
 	name: {
 		required: msg_required,
+		type: 'string',
 		min: 5,
 		max: 15,
 	},
@@ -14,18 +15,21 @@ const InsertUserSchema = {
 	},
 	password: {
 		required: msg_required,
+		type: 'string',
 		min: 8,
 		max: 20,
 		match: true,
 	},
 	confirmPassword: {
 		required: msg_required,
+		type: 'string',
 		min: 8,
 		max: 20,
 		match: true,
 	},
 	phone: {
 		required: msg_required,
+		type: 'string',
 		min: 11,
 		max: 20,
 	},

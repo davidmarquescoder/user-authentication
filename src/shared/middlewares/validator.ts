@@ -42,6 +42,12 @@ export default function validate(schema: Schema){
 		Object.keys(schema).forEach(field => {
 			const fieldSchema = schema[field];
 
+			// Check TypeOf
+			if(fieldSchema.type && fieldSchema.type === 'string' && typeof body[field] !== 'string'){
+				errors.push(`[Type Error] - O campo ${field} não pode ser um valor númerico, deve ser um texto (string).`);
+				return;
+			}
+
 			// Check Empty
 			if(fieldSchema.required && !body[field]){
 				errors.push(`[Empty Field Error] - O campo ${field} não foi preenchido. ${fieldSchema.required}`);
