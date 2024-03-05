@@ -43,7 +43,12 @@ export default function validate(schema: Schema){
 			const fieldSchema = schema[field];
 
 			// Check TypeOf
-			if(fieldSchema.type && fieldSchema.type === 'string' && typeof body[field] !== 'string'){
+			if(fieldSchema.type && fieldSchema.type !== 'email' && typeof body[field] !== fieldSchema.type){
+				errors.push(`[Type Error] - O campo ${field} não pode ser um valor númerico, deve ser um texto (string).`);
+				return;
+			}
+
+			if(fieldSchema.type && fieldSchema.type === 'email' && typeof body[field] !== 'string'){
 				errors.push(`[Type Error] - O campo ${field} não pode ser um valor númerico, deve ser um texto (string).`);
 				return;
 			}
