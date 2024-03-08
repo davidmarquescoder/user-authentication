@@ -4,6 +4,9 @@ import { Request, Response } from 'express';
 // Models
 import User from '../models/User';
 
+// Create User Token
+import Authentication from '../../../shared/middlewares/Authentication';
+
 
 export default class NewUser{
 	static async CreateUser(request: Request, response: Response){
@@ -28,8 +31,8 @@ export default class NewUser{
 				phone,
 			});
     
-			await user.save();
-			return response.status(201).json({msg: '[Success!] - User Created'});
+			const NewUser = await user.save();
+			return Authentication.CreateUserToken(NewUser, request, response);
 		}
 		catch(error){
 			console.log(`[Error Insert DataBase] >>> ${error}`);
